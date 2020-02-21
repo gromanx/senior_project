@@ -1,16 +1,6 @@
-Step 1: How to get started on the project.
- 1. Open your computer's Terminal. 
- 2. Make a new folder/directory, in bash run " mkdir Scrambled Legs "
- 3. Enter Directory, in bash run  " cd foodMap "
- 4. Download all of the files on GitHub to get started, in bash run " git clone git@github.com:NoelBram/foodMAP.git "
- 6.You can now change and adjust the code, (continue to step 2)
+Purpose: To have a platform where you can save and share your favorite food places with family.
 
-Step 2: How to upload changes made on your computer to the github website.
-note: All of the following bash commands must be exicuted in your foodMap Directory.  
-1. (Recomended) Retrieve all existing changes from the GitHub website, in bash run " git pull "
-2. a. Send the new or changed file to your repository, in bash run " git add theNewFile.cpp " 
-2. b. If you want to send MORE THAN ONE file to your repository, in bash run " git add -A " or " git add . "
-3. (Recomended) To see what is diffeerent from your files to the already existing files on github.com, in bash run " git status "
-4. To confirm changes and place a message of what was changed, in bash run " git commit -m " I just added theNewFile.cpp "
-note: It would be good to check the status of your repository again, in bash run " git status "
-5. To synch all changes done to your repository(on your computer) to github.com, in bash run " git push "
+Audience: People who travel and love food. 
+ 
+Narrative: 
+A mix between Yelp and Instagram, foodMap, an application for people who love food. We live in a world full of restaurants that come from many cultures, but we still struggle with finding a place to eat. With foodMap you have the ability to save your favorite restaurants and see how much of the world you have ventured into. You can also share your history with others like friends and family. It will make it easier to come together and find new and amazing food discoveries. 
