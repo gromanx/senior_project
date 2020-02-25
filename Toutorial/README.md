@@ -4,7 +4,7 @@ Step 1: How to get started on the project.
  1. Open your computer's Terminal. 
  2. Make a new folder/directory, in bash run " mkdir Scrambled Legs "
  3. Enter Directory, in bash run  " cd foodMap "
- 4. Download all of the files on GitHub to get started, in bash run " git clone git@github.com:NoelBram/foodMAP.git "
+ 4. Download all of the files on GitHub to get started, in bash run " git clone git@github.com:NoelBram/senior_project.git "
  6.You can now change and adjust the code, (continue to step 2)
 
 Step 2: How to upload changes made on your computer to the github website.
