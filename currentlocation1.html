@@ -3,7 +3,7 @@
   <head>
     <title>Your Profile</title>
     <div id="header" class="header";>
-    <h1>My Food Map</h1>
+    <h1>[Username]</h1>
     </div>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -86,9 +86,9 @@
       
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Food Map History</a>
-        <a href="#">Resturant Wish-List</a>
-        <a href="#">My Friends</a>
+        <a href="#">My List</a>
+        <a href="#">Find Friends</a>
+        <a href="#">Recomendations</a>
         <a href="#"></a>
       </div>
     <div id="map"></div>
@@ -224,7 +224,7 @@
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
+                              'Error: Could not find your current location ' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
