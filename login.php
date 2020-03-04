@@ -6,10 +6,17 @@ $link=mysqli_connect("96.44.135.40","valkyrie_005781551","GiKC4-2OTwok","valkyri
 $query=mysqli_query($link,"SELECT Email,Password FROM Users WHERE Email = '$username'");
 $result=mysqli_query($con,$sql);
 $row = mysqli_fetch_array($query);
+$hashpwd = $row['Password']; 
 if (isset($_REQUEST['authcode'])) {
 		session_start();
-  if($_POST['submit']){    
-    if($row['Email']==$username && $row['Password']==$password && strtolower($_REQUEST['authcode'])==$_SESSION['authcode']){
+  if($_POST['submit']){  
+    if($username==""||$password=="")
+    {
+      echo "<script>alert('Please input Password and Email');</script>";
+    }
+    else{ 
+     
+    if($row['Email']==$username && password_verify($password, $hashpwd) && strtolower($_REQUEST['authcode'])==$_SESSION['authcode']){
         setcookie('uname',$username,time()+7200);
         echo "<script>alert('successfully');window.location= 'currentlocation.html';</script>";
     }
@@ -27,6 +34,7 @@ if (isset($_REQUEST['authcode'])) {
    
          
        }
+    }
   }
          
 }
