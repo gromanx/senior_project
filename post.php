@@ -1,6 +1,6 @@
 <?php 
-  $Image=$_FILE['image'];
-  $Video=$_FILES['video'];
+  $Image=$_FILE['userImage'];
+  $Video=$_FILES['UserVideo'];
 
   $link=mysqli_connect("96.44.135.40","valkyrie_005781551","GiKC4-2OTwok","valkyrie_scrambeledlegs");
   $result=mysqli_query($con,$sql);
@@ -28,7 +28,7 @@
           echo "<script>alert('Post must conatin a picture or video');</script>";
         }
         else{ 
-          echo "<script>alert('successfully');window.location= 'post.html';</script>";
+          echo "<script>alert('successfully');window.location= 'map.html';</script>";
         }
       }
   }
