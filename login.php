@@ -1,4 +1,4 @@
-<?php 
+<?php  
 $username=$_POST['username'];
 $password=$_POST['pass'];
 $code==$_POST['authcode'];
@@ -8,35 +8,28 @@ $result=mysqli_query($con,$sql);
 $row = mysqli_fetch_array($query);
 $hashpwd = $row['Password']; 
 if (isset($_REQUEST['authcode'])) {
-		session_start();
+  session_start();
   if($_POST['submit']){  
-    if($username==""||$password=="")
-    {
+    if($username==""||$password==""){
       echo "<script>alert('Please input Password and Email');</script>";
     }
     else{ 
-     
-    if($row['Email']==$username && password_verify($password, $hashpwd) && strtolower($_REQUEST['authcode'])==$_SESSION['authcode']){
+      if($row['Email']==$username && password_verify($password, $hashpwd) && strtolower($_REQUEST['authcode'])==$_SESSION['authcode']){
         setcookie('uname',$username,time()+7200);
-        echo "<script>alert('successfully');window.location= 'currentlocation.html';</script>";
+        $_SESSION['username']=$username;
+        header("Location:map.php");
+        echo "<script>alert('successfully');window.location= 'map.html';</script>";
+      }
+      else {
+        if(strtolower($_REQUEST['authcode'])==$_SESSION['authcode']){
+          echo "<script>alert('Email or Password wrong');history.go(-1)</script>";
+        }
+        else{
+          echo "<script>alert('incorrect security code');history.go(-1)</script>";
+        }    
+      }
     }
-    else 
-       {
-        
-         if(strtolower($_REQUEST['authcode'])==$_SESSION['authcode'])
-         {
-           echo "<script>alert('Email or Password wrong');history.go(-1)</script>";
-         }
-         else
-         {
-            echo "<script>alert('incorrect security code');history.go(-1)</script>";
-         }
-   
-         
-       }
-    }
-  }
-         
+  }     
 }
 include('login.html');
 ?>
