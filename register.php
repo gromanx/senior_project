@@ -9,14 +9,13 @@ $phonenumber=$_POST['phonenumber'];
 
 $link=mysqli_connect("96.44.135.40","valkyrie_005781551","GiKC4-2OTwok","valkyrie_scrambeledlegs");
 if($_POST['submit']){
-        $$sqlsearch = mysqli_query($link,"select * from Users where Email='$username'");
+        $$sqlsearch = mysqli_query($link,"select * from Authentication where Email='$username'");
 	$seresult = $sqlsearch;
 	if($seresult){
                 echo "<script>alert('user already exist');window.location= 'index.php';</script>";
-
         }
         else{
-                if(mysqli_query($link,"insert into Users (Email,Password,register_date) values('$username','$hashpwd',NOW())")){
+                if(mysqli_query($link,"insert into Authentication(Email,Password,register_date) values('$username','$hashpwd',NOW())")){
                         setcookie("uname",$username,time()+7200);
                         echo "<script>alert('successfully');window.location= 'index.php';</script>";
                 }
