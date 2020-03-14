@@ -16,15 +16,14 @@
         <a href="myList.html"><font face = "Lucida Bright" size = "+3"> My List </font> <br /></a>
         <a href="myFriends.html"><font face = "Lucida Bright" size = "+3"> My Friends </font> <br /></a>
         <a href="recommendations.html"><font face = "Lucida Bright" size = "+3"> Recommendations </font> <br /></a>
-        <a href="settings.html"><font face = "Lucida Bright" size = "+3"> Settings </font> <br /></a>
+        <a onclick="myFunction()"><font face = "Lucida Bright" size = "+3"> Settings </font> <br /></a>
       </div>
-      
       <div id="map"></div>
       <script> var map, infoWindow;
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-           zoom: 15,
+            center: {lat: 34.073487, lng: -118.359686},
+           zoom: 7,
           disableDefaultUI: true,
           styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -107,7 +106,6 @@
             }
           ]
           });
-          
         
           infoWindow = new google.maps.InfoWindow;
   
