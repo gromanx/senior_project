@@ -1,6 +1,4 @@
 <?php
- 
-
      session_start();
  
     $image = imagecreatetruecolor(100, 30);
@@ -9,8 +7,7 @@
  
     
     $captch_code='';
- 
-   
+
     for ($i=0; $i < 4; $i++) { 
     	$fontsize=6;
     	$fontcolor=imagecolorallocate($image,rand(0,120),rand(0,120),rand(0,120));
@@ -23,8 +20,6 @@
     	$y=rand(5,10);
      	imagestring($image,$fontsize,$x,$y,$fontcontent,$fontcolor);
     }
-      
- 
   
    $_SESSION['authcode'] = $captch_code;
  
