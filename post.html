@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<HTML>
-    <HEAD>
-    <TITLE>Post Picture</TITLE>
-    <link href="imageStyles.css" rel="stylesheet" type="text/css" />
-    </HEAD>
+<html>
+  <link rel="stylesheet" type = text/css; href="map.css">
+  <head>
+    <title>Post</title>
+    <div id="header" class="header";>
+      <h1> <font face = "Lucida Bright" size = "+7"> Post </font> <br /> </h1>
+    </div>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+  </head>
     <BODY>
         <form name="frmImage" enctype="multipart/form-data" action=""
             method="post" class="frmImageUpload">
-            <label>Upload Image File:</label><br /> <input name="userImage"
+            <label><font face = "Lucida Bright" size = "+7"> Upload Image File: </font> <br /></label><br /> <input name="userImage"
                 type="file" class="inputFile" /> <input type="submit"
                 value="Submit" class="btnSubmit" />
         </form>
         </div>
+        <div class="map"></div>
+        <script src="post.js"></script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-Pzwaca70aQbYSxOm6XScEyFYRaQGFHg&callback=initMap">
+    </script>
+  </script>
     </BODY>
     </HTML>

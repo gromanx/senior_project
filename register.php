@@ -15,7 +15,7 @@ if($_POST['submit']){
                 echo "<script>alert('user already exist');window.location= 'index.php';</script>";
         }
         else{
-                if(mysqli_query($link,"insert into Authentication(Email,Password,register_date) values('$username','$hashpwd',NOW())")){
+                if(mysqli_query($link,"insert into Authentication(Email,Password) values('$username','$hashpwd')")){
                         setcookie("uname",$username,time()+7200);
                         echo "<script>alert('successfully');window.location= 'index.php';</script>";
                 }
