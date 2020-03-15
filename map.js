@@ -30,35 +30,15 @@ function initMap() {
     };
   });
 
-  const apiKey = 'AIzaSyD-Pzwaca70aQbYSxOm6XScEyFYRaQGFHg';
   
-  <input type="button" onclick="location.href='post.html';" value="Go to Google" />
-  const infoWindow = new google.maps.InfoWindow();
-  infoWindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
 
   // Show the information for a store when its marker is clicked.
-  map.data.addListener('click', event => {
-
-    const image = $image;
-    const description = $description;
-    const reaction = $iconReaction;
-    const reactText = $reactText;
-    const position = event.feature.getGeometry().get();
-    const content = escapeHTML`
-      <img style="float:left; width:200px; margin-top:30px" src="img/logo_${image}.png">
-      <div style="margin-left:220px; margin-bottom:20px;">
-        <p>${description}</p>
-        <p><b>Grade:</b> ${reaction}<br/><b>commment:</b> ${reactText}</p>
-        <p><img src="https://maps.googleapis.com/maps/api/streetview?size=350x120&location=${position.lat()},${position.lng()}&key=${apiKey}"></p>
-      </div>
-    `;
-
+  
     infoWindow.setContent(content);
     infoWindow.setPosition(position);
     infoWindow.open(map);
   });
 
-}
 
 function createDummyDiv(w, h){
     var out = $(document.createElement('div')).addClass('dummy-div').css('width', w).css('height', h);

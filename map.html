@@ -1,11 +1,9 @@
-<script rel="stylesheet" type="text/javascript" src="map.js"></script>
-<link rel="stylesheet" type = text/css; href="map.css">
 <!DOCTYPE html>
 <html>
   <head>
     <title>foodMap</title>
     <div id="header" class="header";>
-      <h1> <font face = "Lucida Bright" size = "+7"> ['username'] </font> <br /> </h1>
+      <h1> <font face = "Lucida Bright" size = "+9"> Noel's foodMap </font> <br /> </h1>
     </div>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -18,7 +16,33 @@
         <a href="recommendations.html"><font face = "Lucida Bright" size = "+3"> Recommendations </font> <br /></a>
         <a onclick="myFunction()"><font face = "Lucida Bright" size = "+3"> Settings </font> <br /></a>
       </div>
+      <script rel="stylesheet" type="text/javascript" src="map.js"></script>
+      <link rel="stylesheet" type = text/css; href="map.css">
+
       <div id="map"></div>
+      <script> 
+      const apiKey = 'AIzaSyD-Pzwaca70aQbYSxOm6XScEyFYRaQGFHg';
+  
+      <input type="button" onclick="location.href='post.html';" value="Go to Google" />
+      const infoWindow = new google.maps.InfoWindow();
+      infoWindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
+      map.data.addListener('click', event => {
+
+      const image = $image;
+      const description = $description;
+      const reaction = $iconReaction;
+      const reactText = $reactText;
+      const position = event.feature.getGeometry().get();
+      const content = escapeHTML`
+        <img style="float:left; width:200px; margin-top:30px" src="img/logo_${image}.png">
+        <div style="margin-left:220px; margin-bottom:20px;">
+          <p>${description}</p>
+          <p><b>Grade:</b> ${reaction}<br/><b>commment:</b> ${reactText}</p>
+          <p><img src="https://maps.googleapis.com/maps/api/streetview?size=350x120&location=${position.lat()},${position.lng()}&key=${apiKey}"></p>
+        </div>
+      `;    
+      }
+      </script>
       <script> var map, infoWindow;
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
