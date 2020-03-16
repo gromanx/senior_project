@@ -71,13 +71,14 @@
       <div id="mySidenav" class="overlay">
         <a href="post.html"><font face = "Lucida Bright" size = "+3"> Post </font> <br /></a>           
         <a href="myList.html"><font face = "Lucida Bright" size = "+3"> My List </font> <br /></a>
-        <a href="myFriends.html"><font face = "Lucida Bright" size = "+3"> My Friends </font> <br /></a>
+        <a href="friends.html"><font face = "Lucida Bright" size = "+3"> My Friends </font> <br /></a>
         <a href="recommendations.html"><font face = "Lucida Bright" size = "+3"> Recommendations </font> <br /></a>
         <a herf="post.html"><font face = "Lucida Bright" size = "+3"> Settings </font> <br /></a>
       </div>
       <script rel="stylesheet" type="text/javascript" src="map.js"></script>
       <link rel="stylesheet" type = text/css; href="map.css">
       <div id="map"></div>
+      <div class = "map2"></div>
       <script> 
         var map, infoWindow;
         function initMap() {
@@ -166,7 +167,36 @@
             }
           ]
           });
-        }
+          loadGeoJson('stores.json');
+
+          // Define the custom marker icons, using the store's "category".
+          setStyle(feature => {
+            return {
+              icon: {
+                url: `img/icon_lunch-box.png`,
+                scaledSize: new google.maps.Size(64, 64)
+              }
+            };
+          });
+          map2.addEventListener('click', event => {
+            const apiKey = 'AIzaSyD-Pzwaca70aQbYSxOm6XScEyFYRaQGFHg';
+            const category = 'lunch-box.png';
+            const name = 'Fontana Pho';
+            const description = 'Only Pho place that is consistently delicious around here. Rare beef pho and spring rolls are the go to.';
+            const reaction = 'loveEyes.png';
+            const comment = 'see more...';
+            const positionLan = '34.07513';
+            const positionLon = '-117.43721';
+            const content = escapeHTML`
+              <img style="float:left; width:200px; margin-top:30px" src="img/${category}">
+              <div style="margin-left:220px; margin-bottom:20px;">
+                <h2>${name}</h2><p>${description}</p>
+                <p><b>Open:</b> img/icon_${reaction}<br/><b>comment:</b> ${comment}</p>
+                <p><img src="https://maps.googleapis.com/maps/api/streetview?size=350x120&location=${positionLan},${positionLon}&key=${apiKey}"></p>
+              </div>
+            `;
+        });
+      };
         </script>
       <div id="ourtext" class="ourtext">
         <span style="font-size:45px;cursor:pointer" onclick="openNav()">&#9776; <font face = "Lucida Bright" size = "+3"> Navigate </font> <br /></span>
@@ -180,6 +210,7 @@
         function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
         }
+        
       </script>
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-Pzwaca70aQbYSxOm6XScEyFYRaQGFHg&callback=initMap">
